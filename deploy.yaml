@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: interview-cracker
+  name: demo-meteor
 spec:
   selector:
     matchLabels:
-      app: interview-cracker
+      app: demo-meteor
   replicas: 1
   template: # template for the pods
     metadata:
       labels:
-        app: interview-cracker
+        app: demo-meteor
     spec:
       containers:
-      - name: interview-cracker
+      - name: demo-meteor
         env:
         - name: MONGO_URL
           value: mongodb://cracker1:cracker1@ds119028.mlab.com:19028/cracker_db
@@ -23,14 +23,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: interview-cracker
+  name: demo-meteor
 
 spec:
   # This defines which pods are going to be represented by this Service
   # The service becomes a network endpoint for either other services
   # or maybe external users to connect to (eg browser)
   selector:
-    app: interview-cracker
+    app: demo-meteor
 
   ports:
     - name: http
