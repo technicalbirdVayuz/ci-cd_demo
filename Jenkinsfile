@@ -18,7 +18,7 @@ pipeline {
       }
       stage('Build') {
          steps {
-            sh 'echo No build required for Webapp.'
+            sh 'echo No build required for our App.'
          }
       }
 
