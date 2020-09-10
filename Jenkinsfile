@@ -5,8 +5,8 @@ pipeline {
      // You must set the following environment variables
      // ORGANIZATION_NAME
      // YOUR_DOCKERHUB_USERNAME (it doesn't matter if you don't have one)
-     ORGANIZATION_NAME = "bird-organization"
-     SERVICE_NAME = "demo-meteor"
+     ORGANIZATION_NAME = "bird-orgranization"
+     SERVICE_NAME = "ci-cd_demo"
      REPOSITORY_TAG="${YOUR_DOCKERHUB_USERNAME}/${ORGANIZATION_NAME}-${SERVICE_NAME}:${BUILD_ID}"
    }
 
@@ -30,7 +30,7 @@ pipeline {
 
       stage('Deploy to Cluster') {
           steps {
-            sh 'envsubst < ${WORKSPACE}/deploy.yaml | kubectl apply -f -'
+            sh 'envsubst < ${WORKSPACE}/deploy.yaml | kubectl apply -f .'
           }
       }
    }
