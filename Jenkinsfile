@@ -28,9 +28,15 @@ pipeline {
          }
       }
       
+      stage('Clearing other Running Containers') {
+         steps {      
+             sh 'docker ps | awk {' print $1 '} | tail -n+2 > tmp.txt; for line in $(cat tmp.txt); do docker kill $line; done; rm tmp.txt'
+         }
+      }
+
       stage('Deploy to Cluster') {
           steps {
-            sh 'docker run -d -e  ROOT_URL=http://localhost -e MONGO_URL=mongodb://cracker1:cracker1@ds119028.mlab.com:19028/cracker_db -p 3000:3000 ${REPOSITORY_TAG}'
+            sh 'docker run -d -e  ROOT_URL=http://localhost -e MONGO_URL=mongodb://cracker1:cracker1@ds119028.mlab.com:19028/cracker_db -p 3000:3000 ${REPOSITORY_TAG}:latest'
           }
       }
    }
