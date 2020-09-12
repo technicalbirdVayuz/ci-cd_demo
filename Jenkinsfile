@@ -30,7 +30,7 @@ pipeline {
       
       stage('Clearing other Running Containers') {
          steps {      
-             sh "docker rm -f $(docker ps -aq) >/dev/null 2>&1 || true"
+             sh 'docker rm -f $(docker ps -aq) >/dev/null 2>&1 || true'
          }
       }
 
