@@ -1,4 +1,4 @@
-FROM mhart/alpine:3.9:v12.18.3
+FROM mhart/alpine-node:12.18.3
 MAINTAINER Gary Ascuy <gary.ascuy@gmail.com>
 
 ENV BUILD_PACKAGES="python make gcc g++ git libuv bash curl tar bzip2" \
