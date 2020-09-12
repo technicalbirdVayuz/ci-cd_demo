@@ -1,4 +1,4 @@
-FROM abernix/meteord:node-12.14.0-base
+FROM mhart/alpine:3.9:v12.18.3
 MAINTAINER Gary Ascuy <gary.ascuy@gmail.com>
 
 ENV BUILD_PACKAGES="python make gcc g++ git libuv bash curl tar bzip2" \
