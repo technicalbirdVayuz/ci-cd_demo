@@ -27,10 +27,16 @@ pipeline {
            sh 'docker image build -t ${REPOSITORY_TAG} .'
          }
       }
+      
+      stage('Clearing other Running Containers') {
+         steps {
+           sh 'docker stop $(docker ps -a -q)'
+         }
+      }
 
       stage('Deploy to Cluster') {
           steps {
-            sh 'envsubst < ${WORKSPACE}/deploy.yaml | kubectl apply -f .'
+            sh 'docker run -d -e  ROOT_URL=http://localhost -e MONGO_URL=mongodb://cracker1:cracker1@ds119028.mlab.com:19028/cracker_db -p 3000:3000 ${REPOSITORY_TAG}:latest'
           }
       }
    }
