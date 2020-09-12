@@ -1,4 +1,4 @@
-FROM sickp/alpine-node:8.11.0-r1
+FROM abernix/meteord:node-12.14.0-base
 MAINTAINER Gary Ascuy <gary.ascuy@gmail.com>
 
 ENV BUILD_PACKAGES="python make gcc g++ git libuv bash curl tar bzip2" \
@@ -23,4 +23,4 @@ CMD node main.js
 #docker push technicalbird/cracker:7.0
 #docker pull technicalbird/cracker:7.0
 
-#docker run -d -e  ROOT_URL=http://localhost -e #MONGO_URL=mongodb://cracker1:cracker1@ds119028.mlab.com:19028/cracker_db -p 3000:3000 technicalbird/cracker:9.6.1
+#docker run -d -e  ROOT_URL=http://localhost -e MONGO_URL=mongodb://cracker1:cracker1@ds119028.mlab.com:19028/cracker_db -p 3000:3000 technicalbird/cracker:9.6.1
