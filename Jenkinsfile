@@ -30,8 +30,10 @@ pipeline {
       
       stage('Clearing other Running Containers') {
          steps {
-           myVar = docker ps -a -q;
-           sh 'docker stop myVar'
+           script {
+             myVar = docker ps -a -q;
+          }         
+             sh 'docker stop myVar'
          }
       }
 
