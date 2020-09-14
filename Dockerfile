@@ -8,7 +8,7 @@ ENV BUILD_PACKAGES="python make gcc g++ git libuv bash curl tar bzip2" \
 
 WORKDIR /root/app/bundle
 
-ADD demo.tar.gz /root/app
+ADD ci-cd-demo_master.tar.gz /root/app
 RUN apk --update add ${BUILD_PACKAGES} \
     && (cd programs/server/ && npm install --unsafe-perm) \
     && apk --update del ${BUILD_PACKAGES}
