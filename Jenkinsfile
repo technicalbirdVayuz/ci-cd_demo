@@ -18,7 +18,7 @@ pipeline {
       }
       stage('Build') {
          steps {
-            sh 'sudo -s  && export METEOR_ALLOW_SUPERUSER=true && meteor build .'
+            sh 'meteor build .'
          }
       }
 
